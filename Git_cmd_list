@@ -1,0 +1,137 @@
+####################### github
+
+https://www.youtube.com/watch?v=xh32DIHApZA
+https://help.github.com/articles/markdown-basics/    for readme files
+
+new repo
+create a repo on git hub and then
+from the command line
+git init
+git remote add origin https://github.com/RajuC/phone_text-erlang-cowboy.git
+
+
+git clone https://github.com/RajuC/SQ2_Image.git   --- to copy a image from git repo
+
+
+
+
+
+
+
+
+
+#To add all the files to the git repo
+--------------------------------------------
+git add file_name or git add .
+--------------------------------------------
+
+
+#commiting
+--------------------------------------------
+git commit -m "message while updating"
+--------------------------------------------
+
+#for pushing to repo
+----------------------
+git push origin master
+----------------------
+
+
+
+=========== git branch
+https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+git checkout -b PE-2601
+git push origin PE-2601
+git status
+git diff
+git add .
+git commit -m "message"
+git push origin PE-2601
+
+make a pull request
+
+
+to get all branches to local
+git fetch --all
+
+
+========== git pull forcefully 
+rewrites all your local worked files
+branch can be dev/ master
+
+git fetch origin
+git reset --hard origin/dev
+
+========== revert commit undo commit
+
+Undo a commit and redo
+
+$ git commit -m "Something terribly misguided"              (1)
+$ git reset --soft Head                                   (2)
+<< edit files as necessary >>                               (3)
+$ git add ...                                               (4)
+$ git commit -c ORIG_HEAD  
+
+============== pulling the branch
+git clone -b <branch> <remote_repo>
+Example:
+
+git clone -b my-branch git@github.com:user/myproject.git
+
+deleting from github
+rm -rf directory
+if the deleted files shows green in color.
+git rm -r one-of-the-directories
+git commit -m "Remove duplicated directory"
+git push origin master
+
+## https://www.youtube.com/watch?v=2dQosJaLN18
+
+
+updating from the original repo to fork
+http://stackoverflow.com/questions/18824956/updating-forked-github-repo-to-match-originals-latest-code-and-commits
+ cd github-services
+$ git remote add upstream https://github.com/Amplify-Social/SQ2_Image
+$ git fetch upstream
+
+# then: (like "git pull" which is fetch + merge)
+$ git merge upstream/master master
+
+
+git ssh
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+
+
+########### generate   ssh key github 
+
+Git adding user | git init | git initial setup
+
+git config --global user.name "RajuC"
+git config --global user.email "raju.chittimallea@gmail.com"
+
+ssh-keygen -t rsa -b 4096 -C "raju.chittimallea@gmail.com"
+vi ~/.ssh/id_rsa.pub
+copy ssh key and update in github
+
+
+############ git restore deleted files
+
+git ls-files -d | xargs git checkout --
+
+
+
+
+
+########################### self hosted remote-git-repo github
+https://www.kennwilson.com/notes/2013/08/self-hosted-remote-git-repositories/
+https://www.youtube.com/watch?v=j1oFazXrzN4
+https://git-scm.com/book/en/v1/Git-on-the-Server-The-Protocols
+
+
+To add a local repository to an existing Git project, you can run something like this for LOCAL protocol
+$ git remote add local_proj /opt/git/project.git
+
+To clone a Git repository over SSH, you can specify ssh:// URL like this:
+$ git clone ssh://user@server/project.git
+Or you can use the shorter scp-like syntax for SSH protocol:
+$ git clone user@server:project.git
